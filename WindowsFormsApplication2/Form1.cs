@@ -24,6 +24,7 @@ namespace WindowsFormsApplication2
           Rectangulo r =  new Rectangulo(e.X, e.Y);
             r.Draw(this);
             rectangulos.Add(r);
+
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
