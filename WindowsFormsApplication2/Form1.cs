@@ -29,8 +29,8 @@ namespace WindowsFormsApplication2
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             //Polimorfismo
-            foreach (Rectangulo re in rectangulos)
-                re.Draw(this);
+            foreach (Rectangulo r in rectangulos)
+                r.Draw(this);
         }
     }
 }
