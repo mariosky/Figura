@@ -24,13 +24,13 @@ namespace WindowsFormsApplication2
           Rectangulo r =  new Rectangulo(e.X, e.Y);
             r.Draw(this);
             rectangulos.Add(r);
-
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Rectangulo r in rectangulos)
-                r.Draw(this);
+            //Polimorfismo
+            foreach (Rectangulo re in rectangulos)
+                re.Draw(this);
         }
     }
 }
