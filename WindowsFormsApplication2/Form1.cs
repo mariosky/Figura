@@ -21,7 +21,13 @@ namespace WindowsFormsApplication2
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-          Rectangulo r =  new Rectangulo(e.X, e.Y);
+            if (MouseButtons.Right == e.Button)
+            {
+                
+                contextMenuStrip1.Show(this,e.X,e.Y);
+            }
+
+            Rectangulo r =  new Rectangulo(e.X, e.Y);
             r.Draw(this);
             rectangulos.Add(r);
 
@@ -32,6 +38,11 @@ namespace WindowsFormsApplication2
             //Polimorfismo
             foreach (Rectangulo r in rectangulos)
                 r.Draw(this);
+        }
+
+        private void rectanguloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.rectanguloToolStripMenuItem.Checked = true;
         }
     }
 }

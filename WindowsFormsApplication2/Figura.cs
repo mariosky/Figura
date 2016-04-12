@@ -8,31 +8,33 @@ namespace WindowsFormsApplication2
 {
     abstract class Figura
     {
-        public int X;
-        public int Y;
-        Pen pluma;
-        public int ancho;
-        public int largo;
-        Color color;
+        protected int X;
+        protected int Y;
+        protected Pen pluma;
+        protected int ancho;
+        protected int largo;
+        protected Color color;
 
         public Figura(int x, int y ) {
             X = x;
             Y = y;
             pluma = new Pen(Color.Black, 2);
-            ancho = 10;
-            largo = 10;
+            ancho = 100;
+            largo = 100;
         }
+
+        public abstract void Draw(Form f);
 
     }
 
 
     class Rectangulo:Figura
     {
-        public Figura(int x, int y ):base(x,y)
+        public Rectangulo(int x, int y ):base(x,y)
     	{
         } 
 
-        public void Draw(Form f)
+        public override void Draw(Form f)
         {
             Graphics g = f.CreateGraphics();
             g.DrawRectangle(pluma, this.X, this.Y, ancho, largo);
@@ -40,5 +42,19 @@ namespace WindowsFormsApplication2
 
     }
 
+    class Circulo : Figura
+    {
+        public Circulo(int x, int y) : base(x, y)
+        {
+
+        }
+
+        public override void Draw(Form f)
+        {
+            Graphics g = f.CreateGraphics();
+            g.DrawEllipse(pluma, this.X, this.Y, ancho, largo);
+        }
+
+    }
 
 }
