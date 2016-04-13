@@ -6,11 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
-    class Figura
-    {
-    }
-
-    class Rectangulo
+    abstract class Figura
     {
         public int X;
         public int Y;
@@ -19,13 +15,22 @@ namespace WindowsFormsApplication2
         public int largo;
         Color color;
 
-        public Rectangulo(int x, int y ) {
+        public Figura(int x, int y ) {
             X = x;
             Y = y;
             pluma = new Pen(Color.Black, 2);
             ancho = 10;
             largo = 10;
         }
+
+    }
+
+
+    class Rectangulo:Figura
+    {
+        public Figura(int x, int y ):base(x,y)
+    	{
+        } 
 
         public void Draw(Form f)
         {
