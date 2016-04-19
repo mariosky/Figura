@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
-    abstract class Figura
+    abstract class Figura:IComparable
     {
         protected int X;
         protected int Y;
@@ -14,11 +14,14 @@ namespace WindowsFormsApplication2
         protected int ancho;
         protected int largo;
         protected Color color;
+        protected SolidBrush brocha;
 
         public Figura(int x, int y ) {
             X = x;
             Y = y;
-            pluma = new Pen(Color.Black, 2);
+            brocha = new SolidBrush(Color.Blue);
+            pluma = new Pen(Color.Aqua, 2);
+                
             Random rnd = new Random();
             ancho = rnd.Next(10,60);
             largo = ancho;
@@ -26,6 +29,11 @@ namespace WindowsFormsApplication2
 
         public abstract void Draw(Form f);
 
+        public int CompareTo(object obj)
+        {
+
+            return this.largo.CompareTo(((Figura)obj).largo);
+        }
     }
 
 
@@ -39,6 +47,7 @@ namespace WindowsFormsApplication2
         {
             Graphics g = f.CreateGraphics();
             g.DrawRectangle(pluma, this.X, this.Y, ancho, largo);
+            g.FillRectangle(brocha, this.X, this.Y, ancho, largo);
         }
 
     }
@@ -54,6 +63,7 @@ namespace WindowsFormsApplication2
         {
             Graphics g = f.CreateGraphics();
             g.DrawEllipse(pluma, this.X, this.Y, ancho, largo);
+            g.FillEllipse(brocha, this.X, this.Y, ancho, largo);
         }
 
     }

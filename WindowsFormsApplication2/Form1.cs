@@ -73,5 +73,13 @@ namespace WindowsFormsApplication2
             this.circuloToolStripMenuItem.Checked = true;
             this.rectanguloToolStripMenuItem.Checked = false;
         }
+
+        private void ordenarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rectangulos.Sort();
+            rectangulos.Reverse();
+           
+
+        }
     }
 }
