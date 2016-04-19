@@ -19,8 +19,9 @@ namespace WindowsFormsApplication2
             X = x;
             Y = y;
             pluma = new Pen(Color.Black, 2);
-            ancho = 100;
-            largo = 100;
+            Random rnd = new Random();
+            ancho = rnd.Next(10,60);
+            largo = ancho;
         }
 
         public abstract void Draw(Form f);
